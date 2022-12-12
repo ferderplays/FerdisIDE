@@ -1,0 +1,42 @@
+{
+  "name": "ferdiside",
+  "version": "1.0.0",
+  "description": "An electronJS code editor made by Ferdis(Me)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "f-ide",
+    "win": {
+      "target": [ "nsis"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "fide-uninstaller",
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferderplays/FerdisIDE.git"
+  },
+  "author": "ferdis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ferderplays/FerdisIDE/issues"
+  },
+  "homepage": "https://github.com/ferderplays/FerdisIDE#readme",
+  "devDependencies": {
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "readline": "^1.3.0"
+  }
+}

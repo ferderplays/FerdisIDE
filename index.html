@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>FerdisIDE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/301467f7b5.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    
+    <div class="app-container">
+      <header class="app-title">
+        <div class="logo">
+          FIDE
+        </div>
+        <div class="title-container">
+          <div class="title-box">
+            FerdisIDE (ElectronJS Code executor)
+          </div>
+        </div>
+        <div class="navbar-buttons">
+          <div class="minimize-button navbar-button">
+            <div class="navbar-button-text">
+              <i class="fas fa-minus"></i>
+            </div>
+          </div>
+          <div class="maximize-button navbar-button">
+            <div class="navbar-button-text">
+              <i class="far fa-square"></i>
+            </div>
+          </div>
+          <div class="close-button navbar-button">
+            <div class="navbar-button-text">
+              <i class="fas fa-xmark"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="loader-container" id="loader">
+        <div class="inner-loader-box">
+          <img src="./logo.png" class="loader-text" height="128px" />
+          <div class="loader-filler"></div>
+        </div>
+      </div>
+      <div class="options-container app">
+        <div class="options">
+          <div class="options-box">
+            <i class="far fa-file"></i>
+            <input type="file" id="fileinput" style="display: none;">
+          </div>
+        </div>
+        <div class="sidebar">
+
+        </div>
+      </div>
+      <div class="code-container app">
+        <div class="code-column">
+          <div class="code-row">
+            <div class="code-language-title-html">
+              <i class="fab fa-html5">HTML</i>
+            </div>
+            <div class="inner-code-box">
+              <div class="code-gutter">
+
+              </div>
+              <div class="code-syntax">
+
+              </div>
+<textarea class="code-editor" id="editor_html" contenteditable="true" onkeydown="update()">
+</textarea>
+            </div>
+          </div>
+          <div class="code-row">
+            <div class="code-language-title-css">
+              <i class="fab fa-css3-alt">CSS</i>
+            </div>
+            <div class="inner-code-box">
+              <div class="code-gutter">
+
+              </div>
+              <div class="code-syntax">
+
+              </div>
+<textarea class="code-editor" id="editor_css" contenteditable="true" onkeydown="update()">
+</textarea>
+            </div>
+          </div>
+          <div class="code-row">
+            <div class="code-language-title-js">
+              <i class="fab fa-square-js">JS</i>
+            </div>
+            <div class="inner-code-box">
+              <div class="code-gutter">
+
+              </div>
+              <div class="code-syntax">
+
+              </div>
+<textarea class="code-editor" id="editor_js" contenteditable="true" onkeydown="update()">
+</textarea>
+            </div>
+          </div>
+        </div>
+        
+        <iframe class="output" id="output">
+
+        </iframe>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(".minimize-button").click(() => {
+        api.window.minimize()
+      })
+      
+      $(".maximize-button").click(() => {
+          api.window.maximize()
+      })
+      
+      $(".close-button").click(() => {
+          api.window.close()
+      })
+
+      var fileinput = document.getElementById("fileinput")
+      var sidebar = document.querySelector(".sidebar")
+
+      $(".fa-file").click(() => {
+        fileinput.click()
+      })
+
+      fileinput.addEventListener("input", () => {
+        for (var i = 0; i < this.files; i++) {
+          var newtab = document.createElement("div")
+          newtab.innerText = this.files[i]
+          sidebar.appendChild(newtab)
+        }
+      })
+
+      setTimeout(() => {
+        var loader = document.getElementById("loader")
+        loader.style.display = "none"
+        var timedoutelems = document.getElementsByClassName("app")
+        var timedouttitle = document.getElementsByClassName("app-title")
+        for (var i = 0; i < timedoutelems.length; i++) {
+          timedoutelems[i].style.display = "block"
+          timedoutelems[i].style.height = "calc(100vh - 50px)"
+        }
+        timedoutelems[1].style.top = "50px"
+        for (var i2 = 0; i2 < timedouttitle.length; i2++) {
+          timedouttitle[i2].style.display = "flex"
+        }
+        for (var i3 = 0; i3 < loader.children[0].children.length; i3++) {
+          loader.children[0].children[i3].style["animation"] = null
+        }
+        api.window.maximize()
+        api.web.devtools()
+      }, 3000)
+
+      var html_editor = document.getElementById("editor_html"), 
+        css_editor = document.getElementById("editor_css"),
+        js_editor = document.getElementById("editor_js")
+
+      function update() {
+        var html_value = html_editor.value
+        var css_value = css_editor.value
+        var js_value = js_editor.values
+        document.getElementById("output").srcdoc = "<style>" + css_value + "</style>" + html_value
+      }
+    </script>
+  </body>
+</html>
