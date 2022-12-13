@@ -1,6 +1,6 @@
 {
   "name": "ferdiside",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "An electronJS code editor made by Ferdis(Me)",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,8 @@
   "build": {
     "appId": "f-ide",
     "win": {
-      "target": [ "nsis"]
+      "target": [ "nsis"],
+      "icon": "icon.ico"
     },
     "nsis": {
       "oneClick": false,

@@ -47,6 +47,7 @@
           <div class="options-box">
             <i class="far fa-file"></i>
             <input type="file" id="fileinput" style="display: none;">
+            <i class="fas fa-code"></i>
           </div>
         </div>
         <div class="sidebar">
@@ -128,6 +129,10 @@
         fileinput.click()
       })
 
+      $(".fa-code").click(() => {
+        api.web.devtools()
+      })
+
       fileinput.addEventListener("input", () => {
         for (var i = 0; i < this.files; i++) {
           var newtab = document.createElement("div")
@@ -153,7 +158,6 @@
           loader.children[0].children[i3].style["animation"] = null
         }
         api.window.maximize()
-        api.web.devtools()
       }, 3000)
 
       var html_editor = document.getElementById("editor_html"), 

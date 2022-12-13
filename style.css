@@ -5,9 +5,10 @@
 }
 
 :root {
-    --pallet-color-1: rgb(150, 250, 75);
-    --pallet-color-2: rgb(120, 230, 55);
-    --pallet-color-3: rgb(130, 230, 50);
+    --header-color-1: rgb(0, 255, 0);
+    --header-color-2: rgb(0, 230, 0);
+    --pallet-color-1: rgb(35, 35, 35);
+    --pallet-color-2: rgb(30, 30, 30);
     --pallet-color-4: rgb(15, 15, 15);
     --pallet-color-5: rgb(20, 20, 20);
     --pallet-color-6: rgb(25, 25, 25);
@@ -27,7 +28,7 @@ body {
 header {
     height: 50px;
     width: 100vw;
-    background: var(--pallet-color-1);
+    background: var(--header-color-1);
     display: flex;
     justify-content: space-between;
     -webkit-app-region: drag;
@@ -68,7 +69,7 @@ header {
 }
 
 .navbar-button:hover {
-    background: var(--pallet-color-3);
+    background: var(--header-color-2);
 }
 
 .navbar-button-text {
@@ -100,7 +101,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .sidebar {
@@ -200,6 +201,16 @@ header {
     background: transparent;
 }
 
+.code-editor::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+.code-editor::-webkit-scrollbar-thumb {
+    background: lime;
+    border-radius: 5px;
+}
+
 .code-editor:focus, .code-editor:focus-within {
     border: none;
     outline: none;
@@ -211,7 +222,7 @@ header {
     width: calc(50% - 30px);
     height: 100%;
     border: none;
-    border-left: 1px solid var(--pallet-color-1);
+    border-left: 2px solid var(--pallet-color-2);
     border-bottom-right-radius: 25px;
     background: var(--pallet-color-7);
 }
@@ -222,9 +233,9 @@ header {
     width: 200px;
     padding: 25px;
     background: rgb(15, 15, 15);
-    border: 2px solid var(--pallet-color-1);
+    border: 2px solid var(--header-color-1);
     border-radius: 15px;
-    color: var(--pallet-color-1);
+    color: var(--header-color-1);
 }
 
 .inner-loader-box {
@@ -254,7 +265,7 @@ header {
     height: 50px;
     width: 100%;
     border-radius: 15px;
-    background-color: var(--pallet-color-1);
+    background-color: var(--header-color-1);
     animation: 2.5s loaderAnim linear;
 }
 
